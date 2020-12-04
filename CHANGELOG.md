@@ -1,5 +1,9 @@
 Change Log
 ==========
+Version 0.7.3 *(2020-12-04)*
+--------------------------------
+* Allow to set square as background type
+
 Version 0.7.2 *(2020-09-04)*
 --------------------------------
 * Fix the background radius issues

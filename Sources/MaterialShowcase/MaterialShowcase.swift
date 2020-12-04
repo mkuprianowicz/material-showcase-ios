@@ -256,7 +256,7 @@ extension MaterialShowcase {
   /// Returns the current showcases displayed on screen.
   /// It will return null if no showcase exists.
   public static func presentedShowcases() -> [MaterialShowcase]? {
-    guard let window = UIApplication.shared.keyWindow else {
+    guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else {
       return nil
     }
     return window.subviews.filter { (view) -> Bool in
@@ -271,7 +271,7 @@ extension MaterialShowcase {
   /// Initializes default view properties
   func configure() {
     backgroundColor = UIColor.clear
-    guard let window = UIApplication.shared.keyWindow else {
+    guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else {
       return
     }
     containerView = window
