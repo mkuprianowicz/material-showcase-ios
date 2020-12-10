@@ -136,13 +136,14 @@ extension MaterialShowcase {
   }
 
   /// Sets a UIBarButtonItem as target
-  @objc public func setTargetView(button: UIButton, tapThrough: Bool = false) {
-    targetView = button
-    let tintColor = button.titleColor(for: .normal)
+  @objc public func setTargetView(control: UIControl, tapThrough: Bool = false) {
+    targetView = control
+    let tintColor = control.tintColor
     targetTintColor = tintColor
     backgroundPromptColor = tintColor
+    targetView.clipsToBounds = true //disable shadows
     if tapThrough {
-      onTapThrough = { button.sendActions(for: .touchUpInside) }
+      onTapThrough = { control.sendActions(for: .touchUpInside) }
     }
   }
 
